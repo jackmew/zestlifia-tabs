@@ -6,11 +6,30 @@ var app = angular.module('starter', ['ionic']);
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/home',
-    templateUrl: 'templates/home.html'
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/home.html'
+      }
+    } 
   });
+
+  $stateProvider.state('details', {
+    url: '/details',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/details.html' 
+      }
+    }
+  });
+  /* Above two view : 1.home 2. detail share the same navigation history. 
+     Change view between them with same navigation histroy will have animation */
   $stateProvider.state('settings', {
     url: '/settings',
-    templateUrl: 'templates/settings.html'
+    views: {
+       'tab-settings': {
+         templateUrl: 'templates/settings.html'
+      }
+    }
   });
   $urlRouterProvider.otherwise("/home");
 });
